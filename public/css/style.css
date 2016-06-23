@@ -1,0 +1,113 @@
+body{
+    margin:0px;
+    padding:0;
+    font-size: 3vw;
+}
+
+#canvas{
+    position: absolute;
+    top:0;
+    left: 0;
+    background-color: white;
+}
+
+.right_menu{
+    position: absolute;
+    top:1vw;
+    right:1vw;
+    margin: 0;
+}
+
+.left_menu{
+    position: absolute;
+    top:1vw;
+    left:1vw;
+    padding:0;
+    margin: 0;
+}
+
+.left_menu, .right_menu{
+    list-style: none;
+}
+
+.left_menu li, .right_menu li{
+    display: inline-block;
+    vertical-align: top;
+    background-color: red;
+    cursor: pointer;
+}
+
+.right_menu li{
+    width:5vw;
+    height:5vw;
+}
+
+#timer{
+    position: absolute;
+    width:50vw;
+    bottom: 1vw;
+    left: 25vw;
+    text-align: center;
+    background-color: blue;
+}
+
+.position{
+    position: absolute;
+    bottom: 1vw;
+    right: 1vw;
+}
+
+.eme{
+    vertical-align:super;
+}
+
+#achievement{
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 25vw;
+    width: 50vw;
+    background-color: yellow;
+    display: none;
+}
+
+
+#rankingNav{
+    background-image: url(img/podium.png);
+    background-size: 100%;
+}
+
+#listNav{
+    background-image: url(img/list.png);
+    background-size: 100%;
+}
+
+#socialNav{
+    background-image: url(img/social.png);
+    background-size: 100%;
+}
+
+#optionNav{
+    background-image: url(img/cog.png);
+    background-size: 100%;
+}
+
+#skinNav{
+    width:5vw;
+    height:5vw;
+    background-image: url(img/skin.png);
+    background-size: 100%;
+}
+
+.modal{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 90vh;
+    max-width: 90vw;
+    background-color: purple;
+    display: none;
+    overflow: auto;
+}
+
