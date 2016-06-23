@@ -1,4 +1,4 @@
-Daily Platformer (HTML5/JS)
+image.io
 ----------------
 
-Daily Platformer is a multiplayer asynchronous platformer browser game. **It will be fun :D**
+Devinez l'image qui se dessine le plus rapidement possible !
