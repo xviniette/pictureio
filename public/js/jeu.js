@@ -31,6 +31,10 @@ $(function(){
         }
     });
 
+    socket.on("newRound", function(data){
+        $("#img").attr("src", data.img);
+    })
+
 
     socket.on("playerGuess", function(data){
         vues.app.addRankingPlayer(data);
