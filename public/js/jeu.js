@@ -11,7 +11,29 @@ $(function(){
     });
 
     socket.on("players", function(data){
-    	console.log(data);
+        vues.app.setPlayers(data);
+    });
+
+    socket.on("newPlayer", function(data){
+        vues.app.newPlayer(data);
+    });
+
+    socket.on("removePlayer", function(data){
+        vues.app.removePlayer(data);
+    });
+
+    socket.on("guess", function(data){
+        console.log(data);
+        if(data.valid){
+            console.log("VALIDE");
+        }else{
+            console.log("INVALIDE");
+        }
+    });
+
+
+    socket.on("playerGuess", function(data){
+        vues.app.addRankingPlayer(data);
     });
 
 });

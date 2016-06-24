@@ -6,8 +6,22 @@
 	<title>PictureIo</title>
 </head>
 
-<body>
-aze
+<body id="app">
+	Players
+	<ul>
+		<li v-for="player in players">{{player.pseudo}}</li>
+	</ul>
+
+	Ranking
+	<ul>
+		<li v-for="rank in ranking">{{rank.player.pseudo}} {{rank.time}}</li>
+	</ul>
+
+
+	<form v-on:submit.prevent="propose()">
+		<input type="text" placeholder="Guess" v-model="proposal">
+		<input type="submit" value="Propose">
+	</form>
 
 	<canvas id="canvas"></canvas>
 	<script src="js/lib/jquery.js"></script>
@@ -16,6 +30,7 @@ aze
 
 	<script src="js/jeu.js"></script>
 	<script src="js/Client.js"></script>
+	<script src="js/vues.js"></script>
 </body>
 
 </html>
