@@ -26,7 +26,6 @@ Game.prototype.start = function(){
 		_this.getRandomPicture(word, function(img){
 			_this.picture = img;
 			_this.startTime = Date.now();
-			console.log(word, img);
 			io.emit("newGame", {timeleft:_this.roundTime, img:_this.picture, words:_this.currentWords});
 		});
 	});
