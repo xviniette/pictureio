@@ -31,7 +31,7 @@ $(function(){
                 }
             },
             initRanking:function(){
-                this.ranking = [];
+                this.$set('ranking', []);
             },
             addRankingPlayer:function(rank){
                 this.ranking.push(rank);

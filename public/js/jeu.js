@@ -31,7 +31,18 @@ $(function(){
         }
     });
 
-    socket.on("newRound", function(data){
+    socket.on("pseudo", function(data){
+
+        console.log(data);
+        if(data.valid){
+            console.log("VALIDE");
+        }else{
+            console.log("INVALIDE");
+        }
+    });
+
+    socket.on("newGame", function(data){
+        vues.app.initRanking();
         $("#img").attr("src", data.img);
     })
 

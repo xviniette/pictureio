@@ -4,7 +4,7 @@
   "description": "Picture io",
   "main": "pictureio.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node pictureio.js"
   },
   "author": "vbazia",
   "license": "ISC",

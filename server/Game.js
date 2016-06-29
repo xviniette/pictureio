@@ -53,7 +53,10 @@ Game.prototype.getRandomPicture = function(word, callback){
 					urls.push(images[i].attribs.href.split("imgurl=")[1].split("&")[0]);
 				}
 			}
-			callback(urls[Math.floor(Math.random() * urls.length)]);
+			var url = urls[Math.floor(Math.random() * urls.length)];
+			request(url, function(err, response, body){
+				callback(url);
+			});
 		}
 	});
 }
