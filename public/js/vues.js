@@ -4,6 +4,7 @@ $(function(){
     vues.app = new Vue({
         el:"#app",
         data:{
+            pseudo:"",
             proposal:"",
             players:[],
             ranking:[],
@@ -34,6 +35,13 @@ $(function(){
             },
             addRankingPlayer:function(rank){
                 this.ranking.push(rank);
+            },
+            changePseudo:function(){
+                if(this.pseudo.length > 0){
+                    
+                }
+                localStorage
+                socket.emit("pseudo", this.pseudo);
             }
         }
     });

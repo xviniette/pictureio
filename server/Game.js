@@ -83,7 +83,7 @@ Game.prototype.getRandomWord = function(cb){
 				allWords.push({
 					language:value,
 					word:data,
-					clean:noAccent(data).toUpperCase()
+					clean:_this.noAccent(data).toUpperCase()
 				});
 			}
 			callback();
@@ -92,7 +92,7 @@ Game.prototype.getRandomWord = function(cb){
 		allWords.push({
 			language:"en",
 			word:word,
-			clean:noAccent(word).toUpperCase()
+			clean:_this.noAccent(word).toUpperCase()
 		});
 		cb(word, allWords);
 	});
@@ -104,7 +104,7 @@ Game.prototype.goodSuggestion = function(word){
 		var splitGuess = word.split(" ");
 		for(var w of splitWord){
 			for(var g of splitGuess){
-				if(w == noAccent(g).toUpperCase()){
+				if(w == this.noAccent(g).toUpperCase()){
 					return this.currentWords[i];
 				}
 			}
@@ -156,7 +156,7 @@ Game.prototype.addPlayer = function(socket){
 }
 
 Game.prototype.removePlayer = function(socket){
-	io.emit("removePlayer", this.players[socket.id]);
+	io.emit("removePlayer", {id:this.players[socket.id].id});
 	delete this.players[socket.id];
 }
 
@@ -164,3 +164,29 @@ Game.prototype.getPlayers = function(){
 	var _this = this;
 	return Object.keys(_this.players).map(function (key) {return _this.players[key]})
 }
+
+Game.prototype.pseudo = function(socket, pseudo){
+	if(pseudo.length > 0){
+		this.players[socket.id].pseudo = pseudo;
+		io.emit("pseudo", {id:this.players[socket.id].id, pseudo:pseudo});
+	}
+}
+
+Game.prototype.noAccent = function(str){
+	var accent = [
+	/[\300-\306]/g, /[\340-\346]/g,
+	/[\310-\313]/g, /[\350-\353]/g, 
+	/[\314-\317]/g, /[\354-\357]/g, 
+	/[\322-\330]/g, /[\362-\370]/g, 
+	/[\331-\334]/g, /[\371-\374]/g, 
+	/[\321]/g, /[\361]/g, 
+	/[\307]/g, /[\347]/g, 
+	];
+	var noaccent = ['A','a','E','e','I','i','O','o','U','u','N','n','C','c'];
+	for(var i = 0; i < accent.length; i++){
+		str = str.replace(accent[i], noaccent[i]);
+	}
+	return str;
+}
+
+

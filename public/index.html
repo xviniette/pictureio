@@ -20,6 +20,8 @@
 	<img id="img" src="lol.jpg"><br/>
 	<canvas width="400" height="400"></canvas>
 
+	<input type="text" v-model="pseudo" palceholder="Pseudonyme" v-on:focusout="changePseudo()">
+
 	<form v-on:submit.prevent="propose()">
 		<input type="text" placeholder="Guess" v-model="proposal">
 		<input type="submit" value="Propose">
